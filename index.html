@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="icon" type="image/x-icon" href="assets/img/faviconnewest.ico">
+        <!--=============== REMIXICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <!--=============== SWIPER CSS ===============-->
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+        <title>Harvest Haven NonProfit</title>
+    </head>
+    <body>
+        <header class="header" id="header">
+            <nav class="nav container">
+
+                <a href="#" class="nav__logo"><img src="assets/img/harvesthavenwhite.png"></a>
+                <input type="checkbox" id="check">
+                <label for="check" class="checkbtn">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <label class="close-btn" for="check">&times;</label>
+                    <ul class="nav__list active" id="nav-list">
+                        <li class="nav__item">
+                            <a href="index.html" class="nav__link active-link">Home</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="contact.html" class="nav__link">Contact</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="gala.html" class="nav__link">Gala</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="payment.html" class="nav__link">Donate</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="login_exp.html" class="nav__link" id="displayEmail"></a>
+                        </li>
+                        <li class="nav__item">
+                            <a class="nav__link" id="logout"></a>
+                        </li>
+
+                    </ul>
+
+
+                    <!--SCRIPT FOR WELCOME USER DISPLAY-->
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            const storedEmail = localStorage.getItem('storedEmail');
+                            const displayElement = document.getElementById('displayEmail');
+                            const logoutLink = document.getElementById('logout');
+
+                            if (storedEmail) {
+                                displayElement.textContent = `Welcome, ${storedEmail}`;
+                                logoutLink.textContent = 'Logout';
+                            } else {
+                                displayElement.textContent = 'Login';
+                            }
+
+                            logoutLink.addEventListener('click', function (event) {
+                                event.preventDefault(); // Prevent the default link behavior
+                                localStorage.clear(); // Clear local storage
+                                window.location.reload(); // Reload the current page (index.html)
+                            });
+                            });
+                    </script>
+
+            </nav>
+        </header>
+        <div>
+            <script>
+                import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+                import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+                import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+               const firebaseConfig = {
+                    apiKey: "AIzaSyDfcMblNS8UWsCe4oN1GLO6q76zY6J33Vo",
+                    authDomain: "fbla-real.firebaseapp.com",
+                    databaseURL: "https://fbla-real-default-rtdb.firebaseio.com",
+                    projectId: "fbla-real",
+                    storageBucket: "fbla-real.appspot.com",
+                    messagingSenderId: "254400757268",
+                    appId: "1:254400757268:web:153c94a4f626d752acb101"
+                };  
+
+                 // Initialize Firebase
+                 firebase.initializeApp(firebaseConfig);
+                 
+                 const database = firebase.database();
+
+                // Access data from a specific location in the database
+                const dataRef = database.ref('cLLK6Rd5LLQy40gn0C5rocSNxge2'); // Replace with the UID of the user with the email you're looking for
+                // Read data
+                dataRef.once('value')
+                .then((snapshot) => {
+                    const data = snapshot.val();
+                    console.log(data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching data:', error);
+                });
+            </script>
+                <p id="wlcmValue"></p>
+        </div>
+
+        <main class="main">
+            <!--==================== HOME ====================-->
+            <section class="home" id="home">
+                <video autoplay loop muted plays-inline class="home__img">
+                    <source src="assets/video/mainvid.mp4" type = "video/mp4">
+                  </video>
+                <div class="home__container container grid" >
+                    <div class="home__data">
+                        <h1 class="home__data-title" > <b> Helping Humanity  <br> One Grain At a Time</b></h1>
+                        <a href="contact.html" class="button">Buy Tickets for Gala!</a>
+                        
+                    </div>
+
+<!--
+       <div class="home__info" data-aos="fade-right">
+                        <div>
+                            <p class="home__info-title">Be a Part of our Garden Gala Now</p>
+                            <a href="gala.html" class="button button--flex button--link home__info-button">
+                                More <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+
+                        <div class="home__info-overlay">
+                            <img src="assets/img/bgmetgala.png" class="home__info-img" data-aos="fade-up">
+                        </div>
+                    </div>
+                </div>
+
+-->
+             
+            
+            </section>
+
+         
+
+     
+ 
+
+            
+            <!--ABOUT-->
+            <section class="about section" id="about">
+                <div class="about__container container grid" >
+                    <div class="about__data">
+                        <h2 class="section__title about__title" data-aos="fade-right" style="text-align: center;">Harvest Haven's <br> Garden Gala </h2>
+                        <p class="about__description" data-aos="fade-right">Join us at the Harvest Haven-hosted Met Gala, a night of enchanting dance, captivating auctions, and a culinary journey, where the glamour of the Met meets the heart of Harvest Haven in a celebration of compassion and unity against food insecurity.
+                        </p>
+                        <a href="payment.html" class="button" data-aos="fade-right">Learn More</a>
+                    </div>
+
+                    <div class="about__img">
+                        <div class="about__img-overlay" >
+                            <img src="assets/img/galaguy.jpg" alt="" class="about__img-one" data-aos="fade-up">
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <div class="menu-btn">
+                <div class="navigation">
+                    </div>
+                </div>
+            </div>
+            
+
+            <h1 style="text-align: center; color: black; margin-top: 150px;" class="benefit">Partner With Us</h1>
+            <section class="ho" data-aos="fade-up">
+            
+                <img decoding="async" class="img-slide active" src="assets/img/test1real.jpg" ></img>
+                <img decoding="async" class="img-slide" src="assets/img/test2real.jpg" ></img>
+                <img decoding="async" class="img-slide" src="assets/img/test3real.png" ></img>
+                <img decoding="async" class="img-slide" src="assets/img/test4real.jpg" ></img>
+                <img decoding="async" class="img-slide" src="assets/img/test5real.jpg" ></img>
+                <div class="content active" style="background-color: transparent; font-size: 25px;">
+                    <h1>Community</h1>
+                    <p>"Harvest Haven's commitment to community engagement goes beyond words. Partner with Harvest Haven for programs that make a tangible and lasting difference in the lives of those we serve." - CEO of Maram Corporations (Akshay)</p>
+                    <a href="contact.html">Partner With Us</a>
+                  </div>
+                  <div class="content" style="background-color: transparent; font-size: 25px;">
+                    <h1>Sponsoring</h1>
+                    <p>"Participating in Harvest Haven’s Gala Auction put our brand at the forefront of an audience full of local influencers to community leaders. We were remembered as a business that stands out.” - Sponsor (Vivaan)</p>
+                    <a href="gala.html">Learn More</a>
+                  </div>
+                  <div class="content" style="background-color: transparent; font-size: 25px;">
+                    <h1>Volunteer Now</h1>
+                    <p>
+                        "Harvest Hope is more than an organization; it's a community of like-minded individuals working towards a common goal. Join our team of passionate volunteers and be part of a supportive and inclusive community." - Volunteer (Anonymous)</p>
+                    <a href="register.html">Register Now</a>
+                  </div>
+                  <div class="content" style="background-color: transparent; font-size: 25px;">
+                    <h1>Teaming Up</h1>
+                    <p>
+                        "Explore diverse partnership opportunities tailored to your business goals. Whether it's sponsoring events, programs, or initiatives, Harvest Haven offered us flexible collaborations for maximum impact." - CEO of Feast Foundation (Monit)</p>
+                    <a href="business.html">Sign Up Today</a>
+                  </div>
+                  <div class="content" style="background-color: transparent; font-size: 25px;">
+                    <h1>IMPROVEMENT</h1>
+                    <p>“Harvest Hope's charity galas have been beacons of hope for me and others who have faced food insecurity. Harvest Hope is a lifeline that has given us hope and strength to face challenges in our lives in a strong and positive manner.” - Recipient (Prabh)</p>
+                    <a href="payment.html">Donate Now</a>
+                  </div>
+                  <br>
+                  
+                <div class="slider-navigation">
+                    <div class="nav-btn active"></div>
+                    <div class="nav-btn"></div>
+                    <div class="nav-btn"></div>
+                    <div class="nav-btn"></div>
+                    <div class="nav-btn"></div>
+                </div>
+            
+            </section>
+            <script>
+              const menuBtn = document.querySelector(".menu-btn");
+        const navigation = document.querySelector(".navigation");
+        
+        menuBtn.addEventListener("click", () => {
+            menuBtn.classList.toggle("active");
+            navigation.classList.toggle("active");
+        });
+        
+        const btns = document.querySelectorAll(".nav-btn");
+        const slides = document.querySelectorAll(".img-slide");
+        const contents = document.querySelectorAll(".content");
+        
+        var sliderNav = function(manual){
+            btns.forEach((btn) => {
+                btn.classList.remove("active");
+            });
+        
+            slides.forEach((slide) => {
+                slide.classList.remove("active");
+            });
+        
+            contents.forEach((content) => {
+                content.classList.remove("active");
+            });
+        
+            btns[manual].classList.add("active");
+            slides[manual].classList.add("active");
+            contents[manual].classList.add("active");
+        }
+        
+            btns.forEach((btn, i) => {
+                btn.addEventListener("click", () => {
+                    sliderNav(i)
+                });
+            });
+            </script>
+
+
+
+            <!--==================== EXPERIENCE ====================-->
+        
+            <div class="counter-wrapper">
+                <div class="counter">
+                    <h1 class="count" data-target="323">0</h1>
+                    <p>New Volunteers Every Year</p>
+                </div>
+                <div class="counter">
+                    <h1 class="count" data-target="10453">0</h1>
+                    <p>Food Packages Made and Delivered</p>
+                </div>
+                <div class="counter">
+                    <h1 class="count" data-target="165">0</h1>
+                    <p>Awards and Recognitions</p>
+                </div>
+                <div class="counter">
+                    <h1 class="count" data-target="807">0</h1>
+                    <p>People Helped Every Week</p>
+                </div>
+            </div>
+
+            <script>
+                function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+const counts = document.querySelectorAll('.count');
+const speed = 35; // Adjust this value to control the speed (higher value = slower animation)
+
+// Function to update the counter
+function updateCounter(counter) {
+    const target = Number(counter.getAttribute('data-target'));
+    const count = Number(counter.innerText);
+    const inc = target / speed;
+
+    if (count < target) {
+        counter.innerText = Math.floor(inc + count);
+        setTimeout(() => updateCounter(counter), 30); // Increase the timeout for a slower animation
+    } else {
+        counter.innerText = target;
+    }
+}
+
+// Function to handle scroll event
+function handleScroll() {
+    counts.forEach((counter) => {
+        if (isInViewport(counter)) {
+            updateCounter(counter);
+        }
+    });
+}
+
+// Add event listener for scroll
+window.addEventListener('scroll', handleScroll);
+
+// Initial check for elements in viewport on page load
+handleScroll();
+            </script>
+
+
+            <!--==================== PLACES ====================-->
+ 
+
+            <!--SUBSCRTIONS-->
+           
+            <!--==================== SUBSCRIBE ====================-->
+            <section class="subscribe section">
+                <div class="subscribe__bg">
+                    <div class="subscribe__container container">
+                        <h2 class="section__title subscribe__title">Subscribe to our <br> Newsletter</h2>
+                        <p class="subscribe__description">Subscribe to our newsletter and learn more about our future projects and events.
+                        </p>
+    
+                        <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdwWwGye3Nwe5AME_yG3H54keNklBgh1axGMB8-pvd_R7S3GQ/formResponse" method="post" target="hidden_iframe" onsubmit="return validateForm(); " class="subscribe__form">
+                            <input class="w3-input w3-border" type="text" placeholder="Email" id="email" required name="entry.1123375390">
+    
+                            <button class="button">
+                                Subscribe
+                            </button> 
+                        </form>
+                    </div>
+                </div>
+            </section>
+            
+        <script>
+            function SendMail () {
+                var params = {
+                    email_id : document.getElementById("email").value,
+                }
+                emailjs.send('service_2pobilf', 'template_ktjrw9j', params).then(function (res) {
+                    alert("Sent! " + res.status)
+                })
+                }
+
+
+                function isInViewport(element) {
+                    const rect = element.getBoundingClientRect();
+                    return (
+                        rect.top >= 0 &&
+                        rect.left >= 0 &&
+                        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                    );
+                }
+
+                // Function to handle scroll event
+                function handleScroll() {
+                    const subscribeSection = document.querySelector('.subscribe');
+                    
+                    if (isInViewport(subscribeSection)) {
+                        subscribeSection.classList.add('animate-slide');
+                        window.removeEventListener('scroll', handleScroll);
+                    }
+                }
+
+                // Event listener for scroll
+                window.addEventListener('scroll', handleScroll);
+        </script>
+
+            
+            <!--==================== SPONSORS ====================-->
+        
+
+        <!--==================== FOOTER ====================-->
+        <footer class="footer section">
+            <div class="footer__container container grid">
+                <div class="footer__content grid">
+                    <div class="footer__data">
+                        <h3 class="footer__title">Social Media</h3>
+                        <p class="footer__description">Have a look at our socials <br> where planned events and
+                            activites are posted!
+                        </p>
+                        <div style="margin-top: 50px;">
+                            <a href="https://www.facebook.com/" target="_blank" class="footer__social">
+                                <i class="ri-facebook-box-fill"></i>
+                            </a>
+                            <a href="https://twitter.com/" target="_blank" class="footer__social">
+                                <i class="ri-twitter-fill"></i>
+                            </a>
+                            <a href="https://www.instagram.com/" target="_blank" class="footer__social">
+                                <i class="ri-instagram-fill"></i>
+                            </a>
+                            <a href="https://www.youtube.com/" target="_blank" class="footer__social">
+                                <i class="ri-youtube-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div class="footer__data">
+                        <h3 class="footer__subtitle">About</h3>
+                        <ul>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">About Us</a>
+                            </li>
+                           
+                            <li class="footer__item">
+                                <a href="gala.html" class="footer__link" style="margin-bottom: 10;">Upcoming Events</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__data">
+                        <h3 class="footer__subtitle">Support</h3>
+                        <ul>
+                            <li class="footer__item">
+                                <a href="contact.html" class="footer__link">Contact Us</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="register.html" class="footer__link">Become a Member Today</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="payment.html" class="footer__link">Want to help directly? Donate Today!</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer__rights">
+                    <p class="footer__copy">&#169; 2023 Harvest Haven. All Rights Reserved.</p>
+                    <div class="footer__terms">
+                        <a href="sources.html" class="footer__terms-link">Sources</a>
+                        <a href="#" class="footer__terms-link">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+         <!--========== SCROLL UP ==========-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="ri-arrow-up-line scrollup__icon"></i>
+        </a>
+
+        <!--=============== SCROLL REVEAL===============-->
+        <script src="assets/js/scrollreveal.min.js"></script>
+        
+        <!--=============== SWIPER JS ===============-->
+        <script src="assets/js/swiper-bundle.min.js"></script>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/login.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script>
+            AOS.init({
+                duration: 800, // Duration of animation in milliseconds
+                once: true, // Whether animation should only happen once
+                easing: 'ease', // Type of easing
+                offset: 200, // Change offset to trigger animations sooner or later
+            });
+            function sendMail(event) {
+                event.preventDefault(); // Prevents the default form submission behavior
+
+                var params = {
+                    email_id: document.getElementById("email").value,
+                };
+
+                emailjs.send('service_2pobilf', 'template_ktjrw9j', params).then(function (res) {
+                    alert("Sent! " + res.status);
+                });
+            }
+
+        </script>
+    </body>
+</html>

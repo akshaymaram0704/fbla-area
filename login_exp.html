@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <title>Harvest Haven NonProfit</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="icon" type="image/x-icon" href="assets/img/faviconnewest.ico">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@500;600;700&display=swap");
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(90deg, #2F423B 20%, #ACC27A 80.1%);
+  background-size: cover;
+  background-position: center;
+}
+
+
+  .wrapper {
+  width: 700px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, .2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  color: #fff;
+  border-radius: 10px;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column; /* Set flex direction to column */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+}
+
+    .wrapper h1 {
+      font-size: 36px;
+      text-align: center;
+    }
+
+    .wrapper .input-box {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      margin: 30px 0;
+      flex: 1;
+    }
+
+    .input-box input {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      border: 2px solid rgba(255, 255, 255, .2);
+      border-radius: 40px;
+      font-size: 16px;
+      color: #fff;
+      padding: 20px 45px 20px 20px;
+    }
+
+    .input-box input::placeholder {
+      color: #fff;
+      display: inline-block;
+    }
+
+    .input-box i {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+    }
+
+    .wrapper .remember-forgot {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14.5px;
+      margin: -15px 0 15px;
+    }
+
+    .remember-forgot label input {
+      accent-color: #fff;
+      margin-right: 3px;
+    }
+
+    .remember-forgot a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .remember-forgot a:hover {
+      text-decoration: underline;
+    }
+
+.wrapper .btn {
+  width: 100%;
+  height: 45px;
+  border-radius: 40px;
+  border: none;
+  outline: none;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+  text-align: center; /* Center-align text */
+  line-height: 45px; /* Center vertically within the button */
+  
+}
+
+    .wrapper .register-link {
+      text-align: center;
+      font-size: 14.5px;
+      margin: 20px 0 15px;
+    }
+
+    .register-link p a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .register-link p a:hover {
+      text-decoration: underline;
+    }
+
+    :root {
+  --header-height: 3rem;
+
+  /*========== Colors ==========*/
+  /* Change favorite color to match images */
+  /*Green dark 190 - Green 171 - Grren Blue 200*/
+  --hue-color: 190;
+
+  /* HSL color mode */
+  --first-color: rgb(172,194,122);
+  --first-color-second: hsl(var(--hue-color), 64%, 22%);
+  --first-color-alt: rgb(255, 255, 255);
+  --title-color: hsl(var(--hue-color), 64%, 18%);
+  --text-color: black;
+  --text-color-light: black;
+  --input-color: hsl(var(--hue-color), 24%, 97%);
+  --body-color: hsl(var(--hue-color), 100%, 99%);
+  --white-color: #FFF;
+  --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
+  --scroll-thumb-color: hsl(var(--hue-color), 12%, 75%);
+
+  /*========== Font and typography ==========*/
+  --body-font: 'Open Sans', sans-serif;
+  --title-font: 'Raleway', sans-serif;
+  --biggest-font-size: 2.5rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== Margenes Bottom ==========*/
+  --mb-0-25: .25rem;
+  --mb-0-5: .5rem;
+  --mb-0-75: .75rem;
+  --mb-1: 1rem;
+  --mb-1-25: 1.25rem;
+  --mb-1-5: 1.5rem;
+  --mb-2: 2rem;
+  --mb-2-5: 2.5rem;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+
+  /*========== Hover overlay ==========*/
+  --img-transition: .3s;
+  --img-hidden: hidden;
+  --img-scale: scale(1.1);
+}
+
+
+
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/*=============== NAV ===============*/
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo, .nav__toggle {
+  color: var(--white-color);
+}
+
+.nav__logo {
+  font-weight: var(--font-semi-bold);
+}
+
+.nav__toggle {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.nav__menu {
+  position: relative;
+}
+
+
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
+}
+
+.nav__link {
+  color: var(--text-color-light);
+  font-weight: var(--font-semi-bold);
+  text-transform: uppercase;
+}
+
+
+/* show menu */
+.show-menu {
+  right: 0;
+}
+
+/* Change background header */
+.scroll-header {
+  background-color: var(--body-color);
+  box-shadow: 0 0 4px rgba(14, 55, 63, 0.15);
+}
+
+.scroll-header .nav__logo,
+.scroll-header .nav__toggle {
+  color: var(--title-color);
+}
+
+/* Active link */
+.active-link {
+  position: relative;
+  color: black;
+}
+
+.active-link::before {
+  content: '';
+  position: absolute;
+  background-color: var(--title-color);
+  width: 100%;
+  height: 2px;
+  bottom: -.75rem;
+  left: 0;
+}
+
+#submit {
+  padding: 0;
+}
+/*=============== MEDIA QUERIES ===============*/
+/* For small devices */
+@media screen and (max-width: 340px) {
+  .place__container {
+    grid-template-columns: max-content;
+    justify-content: center;
+  }
+  .experience__content {
+    padding: 0;
+  }
+  .experience__overlay:nth-child(1) {
+    width: 190px;
+  }
+  .experience__overlay:nth-child(2) {
+    width: 80px;
+  }
+  .home__info {
+    width: 60%;
+    padding: 1rem;
+  }
+  .experience__img,
+  .video__container {
+    padding: 0;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 568px) {
+  .video__container {
+    display: grid;
+    grid-template-columns: .6fr;
+    justify-content: center;
+  }
+  .place__container {
+    grid-template-columns: repeat(3, max-content);
+  }
+  .subscribe__form {
+    width: 470px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    margin: 0;
+  }
+  .nav {
+    height: calc(var(--header-height) + 1.5rem);
+  }
+  .nav__link {
+    color: var(--white-color);
+    text-transform: initial;
+  }
+  .nav__link:hover {
+    color: rgb(47,66,59);
+    transform: scale(2);
+  }
+  .nav__dark {
+    position: initial;
+  }
+  .nav__menu {
+    display: flex;
+    column-gap: 1rem;
+  }
+  .nav__list {
+    flex-direction: row;
+    column-gap: 4rem;
+  }
+  .nav__toggle, .nav__close {
+    display: none;
+  }
+  .change-theme-name {
+    display: none;
+  }
+  .change-theme {
+    color: var(--white-color);
+  }
+  .active-link::before {
+    background-color: var(--white-color);
+  }
+  .scroll-header .nav__link {
+    color: var(--text-color);
+  }
+  .scroll-header .active-link {
+    color: var(--title-color);
+  }
+  .scroll-header .active-link::before {
+    background-color: var(--title-color);
+  }
+  .scroll-header .change-theme {
+    color: var(--text-color);
+  }
+  .home__container {
+    height: 100vh;
+    grid-template-rows: 1.8fr .5fr;
+  }
+  .home__data {
+    align-self: flex-end;
+  }
+  .home__social {
+    flex-direction: row;
+    align-self: flex-end;
+    margin-bottom: 3rem;
+    column-gap: 2.5rem;
+  }
+  .home__info {
+    bottom: 3rem;
+  }
+  .about__container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+  .about__data, .about__title {
+    text-align: initial;
+  }
+  .about__title {
+    margin-bottom: var(--mb-1-5);
+  }
+  .about__description {
+    margin-bottom: var(--mb-2);
+  }
+  .discover__container {
+    width: 610px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .discover__container,
+  .place__container {
+    padding-top: 2rem;
+  }
+  .experience__overlay:nth-child(1) {
+    width: 363px;
+    margin-right: 4rem;
+  }
+  .experience__overlay:nth-child(2) {
+    width: 160px;
+  }
+  .subscribe__bg {
+    background: none;
+    padding: 0;
+  }
+  .subscribe__container {
+    background-color: var(--first-color-second);
+    padding: 3.5rem 0;
+  }
+  .subscribe__input {
+    padding: 0 .5rem;
+  }
+  .footer__rights {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .home__container {
+    grid-template-rows: 2fr .5fr;
+  }
+  .home__info {
+    width: 328px;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 2rem;
+  }
+  .home__info-title {
+    font-size: var(--normal-font-size);
+  }
+  .about__img-one {
+    width: 230px;
+  }
+  .about__img-two {
+    width: 290px;
+  }
+  .discover__card {
+    width: 237px;
+  }
+  .discover__container {
+    width: 700px;
+  }
+  .discover__data {
+    left: 1.5rem;
+    bottom: 2rem;
+  }
+  .discover__title {
+    font-size: var(--h2-font-size);
+  }
+  .experience__content {
+    margin: var(--mb-1) 0;
+    column-gap: 3.5rem;
+  }
+  .experience__overlay:nth-child(1) {
+    width: 463px;
+    margin-right: 7rem;
+  }
+  .experience__overlay:nth-child(2) {
+    width: 220px;
+    top: 3rem;
+  }
+  .video__container {
+    grid-template-columns: .7fr;
+  }
+  .video__description {
+    padding: 0 8rem;
+  }
+  .place__container {
+    gap: 3rem 2rem;
+  }
+  .place__card, .place__img {
+    height: 263px;
+  }
+  .footer__content {
+    justify-items: center;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+/* For tall screens on mobiles y desktop*/
+@media screen and (min-height: 721px) {
+  body {
+    margin: 0;
+  }
+  .home__container, .home__img {
+    height: 640px;
+  }
+}
+
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.nav {
+  padding: 20px; /* Adjust padding as needed */
+  margin: 0 auto;
+  max-width: 1150px;
+  position: fixed; /* Set the navbar to be fixed */
+  top: 0; /* Place it at the top of the page */
+  left: 0;
+  right: 0;
+  z-index: 999; /* Ensure it's on top of other elements */
+  transition: all 0.5s ease;
+  opacity: 0;
+  transform: translateY(-100%);
+}
+  
+.nav.show-menu {
+  opacity: 1;
+  transform: translateY(0);
+}
+  .nav__list {
+    display: flex;
+    flex-direction: row;
+    gap: 30px; /* Increase the gap between nav items */
+  }
+  
+  /* Adjust the margins of the logo and toggle elements */
+  .nav__logo,
+  .nav__toggle {
+    margin-left: 30px; /* Increase the margin from the left edge */
+  }
+
+
+  .nav__list {
+    display: flex;
+    flex-direction: row;
+    column-gap: 4rem; /* Increase the gap between nav items */
+  }
+  
+  /* Add margin to each nav item for additional spacing */
+  .nav__item {
+    margin-right: 15px; /* Add margin between each nav item */
+  }
+  
+  /* Adjust the margin of the last nav item to avoid extra spacing */
+  .nav__item:last-child {
+    margin-right: 0; /* Remove margin for the last nav item */
+  }
+
+
+  body {
+  animation-name: slideBackground;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes slideBackground {
+  from {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wrapper {
+  /* Your existing styles */
+
+  /* Add animation properties for the wrapper */
+  opacity: 0;
+  transform: translateY(50%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.wrapper.show-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.wrapper h1,
+.input-box,
+.remember-forgot,
+.btn,
+.register-link {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.wrapper.show-wrapper h1,
+.wrapper.show-wrapper .input-box,
+.wrapper.show-wrapper .remember-forgot,
+.wrapper.show-wrapper .btn,
+.wrapper.show-wrapper .register-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+.fa-bars {
+    display: flex;
+    color: white;
+ }
+
+  .checkbtn {
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+  }
+  
+  #check {
+    display: none;
+  }
+  
+  @media (max-width: 952px) {
+    label.logo {
+      font-size: 30px;
+      padding-left: 50px;
+    }
+    nav ul li a {
+      font-size: 16px;
+    }
+  
+    .nav__logo {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 858px) {
+    .checkbtn {
+      display: block;
+    }
+    ul {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      left: 0; /* Change left property */
+      text-align: center;
+      transition: all 0.5s;
+      overflow-y: auto; /* Allow scrolling if content exceeds height */
+    }
+    nav ul li {
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
+    }
+    nav ul li a {
+      font-size: 20px;
+    }
+    #check:checked ~ ul {
+      top: 0; /* Slide in from the top */
+    }
+    .nav__logo {
+      margin: 0;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    /* Add animation properties for the navbar */
+    .nav {
+      transition: all 0.5s ease;
+      position: fixed;
+      top: -100%; /* Initially hide the navbar above the viewport */
+      left: 0;
+      right: 0;
+      z-index: 999;
+    }
+
+    /* Show the navbar when the 'show-menu' class is added */
+    .nav.show-menu {
+      top: 0; /* Slide the navbar in from the top */
+    }
+  }
+  
+  #check {
+    display: none;
+  }
+  
+  .close-btn {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    font-size: 50px;
+    color: #000;
+    cursor: pointer;
+    z-index: 1000;
+    display: none;
+  }
+  
+  @media (max-width: 858px) {
+    /* Your existing media query styles */
+  
+    .checkbtn {
+      display: block;
+    }
+  
+    ul {
+      /* Your existing styles */
+    }
+  
+    #check:checked ~ ul {
+      top: 0; /* Slide in from the top */
+    }
+  
+    #check:checked ~ .close-btn {
+      display: block; /* Show close button when menu is open */
+    }
+  
+  
+    .scroll-header .fa-bars {
+      color:black;
+    }
+  }
+  
+  
+  .home__container {
+    padding: 40px;
+    /* Other default styles for the home container */
+  }
+  
+  /* Tablet Styles */
+  @media screen and (max-width: 1023px) {
+    .home__container {
+        padding: 30px;
+        /* Adjusted styles for tablets */
+    }
+  }
+  
+  /* Mobile Styles */
+  @media screen and (max-width: 767px) {
+    .home__container {
+        padding: 20px;
+        /* Adjusted styles for mobile */
+    }
+  }
+  
+  /* Larger Desktop Styles */
+  @media screen and (min-width: 1440px) {
+    .home__container {
+        padding: 60px;
+        /* Adjusted styles for larger desktop screens */
+    }
+  }
+  
+  .home__info {
+    text-align: center;
+    color: #ffffff; /* Adjust text color */
+  }
+  
+  /* Adjustments for mobile */
+  @media screen and (max-width: 767px) {
+    .home__info-overlay {
+        position: relative;
+        height: auto;
+        width: 200px;
+        background-color: transparent;
+    }
+  
+    .home__info-title, .home__info-button {
+      font-size: 10px;
+    }
+  
+    .home__info {
+        position: relative;
+        width: 200px;
+        padding: 20px;
+        font-size: 1.8rem; /* Increase text size */
+        z-index: 1; /* Ensure it appears over the video */
+    }
+  
+    .home__info-overlay img {
+        max-width: 100%; /* Make image smaller */
+        height: auto;
+    }
+  
+    .home__data {
+        top: 0; /* Adjust the top margin to move it higher up */
+    }
+  
+    .section .home {
+      height: 700px;
+    }
+    .nav__list {
+      background: white;
+        display: none; /* Initially hide the nav__list */
+        padding: 20px; /* Add padding to the dropdown */
+        color: black;
+    }
+    
+    /* Display the nav__list when #check is checked */
+    #check:checked ~ .nav__list {
+        display: block;
+    }
+    html {
+        width: 100vw;
+    }
+  }
+  
+  
+  @media screen and (max-width: 767px) {
+    .about__img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 80px;
+    }
+  }
+
+
+
+  .nav__logo img {
+    width: 60%;
+  }
+  
+
+/* ... (your existing CSS) ... */
+
+/* Additional CSS for the dropdown menu */
+
+  </style>
+</head>
+
+<body>
+  
+  <header class="header" id="header">
+    <nav class="nav container">
+        <link rel="icon" type="image/x-icon" href="assets/img/fbla.ico">
+        <link rel="shortcut icon" href="assets/img/logo_fbla.png" type="image/png">
+        <a href="#" class="nav__logo"><img src="assets/img/harvesthavenwhite.png"></a>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="close-btn" for="check">&times;</label>
+            <ul class="nav__list active" id="nav-list">
+                <li class="nav__item">
+                    <a href="index.html" class="nav__link ">Home</a>
+                </li>
+                <li class="nav__item">
+                    <a href="contact.html" class="nav__link">Contact</a>
+                </li>
+                <li class="nav__item">
+                    <a href="gala.html" class="nav__link">Gala</a>
+                </li>
+                <li class="nav__item">
+                    <a href="payment.html" class="nav__link">Donate</a>
+                </li>
+                <li class="nav__item">
+                    <a href="login_exp.html" class="nav__link active-link" id="displayEmail"></a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" id="logout"></a>
+                </li>
+
+            </ul>
+
+
+            <!--SCRIPT FOR WELCOME USER DISPLAY-->
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const storedEmail = localStorage.getItem('storedEmail');
+                    const displayElement = document.getElementById('displayEmail');
+                    const logoutLink = document.getElementById('logout');
+
+                    if (storedEmail) {
+                        displayElement.textContent = `Welcome, ${storedEmail}`;
+                        logoutLink.textContent = 'Logout';
+                    } else {
+                        displayElement.textContent = 'Login';
+                    }
+
+                    logoutLink.addEventListener('click', function (event) {
+                        event.preventDefault(); // Prevent the default link behavior
+                        localStorage.clear(); // Clear local storage
+                        window.location.reload(); // Reload the current page (index.html)
+                    });
+                    });
+            </script>
+
+    </nav>
+</header>
+
+  <div class="wrapper">
+    <form action="" id="form">
+        <h1>Login To Member Account </h1>
+        <div class="input-box">
+            <input id="email" placeholder="Email" required>
+            <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-box">
+          <input id="name" placeholder="Name" required>
+          <i class='bx bxs-user'></i>
+      </div>
+        <div class="input-box">
+            <input id="password" placeholder="Password" required>
+            <i class='bx bxs-lock-alt'></i>
+        </div>
+        <div class="remember-forgot">
+            <label><input type="checkbox">Remember me
+            </label>
+            <a href="forgotPass.html">Forgot password?</a>
+        </div>
+        <div class="input-box">
+          <input id="submit" type="submit" value="Login" required>
+
+  
+          <span id='message'></span>
+        </div>
+        <div class="register-link">
+            <p>Want to be a member? <a href="register.html">
+                    Sign up today!
+                </a></p>
+        </div>
+    </form>
+</div>
+<script src="assets/js/login.js"></script>
+
+  <script>
+    var check = function () {
+      if (document.getElementById('password').value ==
+        document.getElementById('confirm_password').value) {
+        document.getElementById('message').style.color = 'green';
+        document.getElementById('message').innerHTML = 'Matching';
+      } else {
+        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').innerHTML = 'Not matching';
+      }
+    }
+  </script>
+
+<!-- <script>
+  const form = document.getElementById('form');
+  const email = document.getElementById('email');
+
+  form.addEventListener('submit', function(e)
+  {
+     e.preventDefault();
+
+     const emailValue = email.value;
+
+     localStorage.setItem('email', emailValue);
+  })
+</script> -->
+
+  <script type="module">
+    
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDfcMblNS8UWsCe4oN1GLO6q76zY6J33Vo",
+  authDomain: "fbla-real.firebaseapp.com",
+  databaseURL: "https://fbla-real-default-rtdb.firebaseio.com",
+  projectId: "fbla-real",
+  storageBucket: "fbla-real.appspot.com",
+  messagingSenderId: "254400757268",
+  appId: "1:254400757268:web:153c94a4f626d752acb101"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const auth = getAuth();
+
+submit.addEventListener('click', (e) => {
+  e.preventDefault(); // Prevent default form submission
+
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+
+      const dt = new Date();
+
+      update(ref(database, 'users/ ' + user.uid),  {
+    last_login:dt,
+
+  })
+      
+
+      // Redirect to index.html
+      window.location.href = 'index.html';
+
+      alert("User logged in!");
+      // ...
+
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorMessage);
+    });
+});
+
+
+submit.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+    var email = document.getElementById('name').value;
+
+
+    // Storing email in local storage
+    localStorage.setItem('storedEmail', email);
+
+    // Rest of your login logic
+    // ...
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Add classes to trigger the animations after a slight delay
+    setTimeout(() => {
+      document.body.classList.add('show-background');
+      document.querySelector('.nav').classList.add('show-menu');
+      document.querySelector('.wrapper').classList.add('show-wrapper');
+      document.querySelectorAll('.wrapper > *').forEach(element => {
+        element.classList.add('show-wrapper');
+      });
+    }, 100);
+  });
+
+
+  </script>
+
+
+</body>
+
+</html>

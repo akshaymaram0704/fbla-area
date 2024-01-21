@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/img/faviconnewest.ico">
+    <!--==================== UNICONS ====================-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+    <!--==================== SWIPER CSS ====================-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+    <!--==================== CSS ===================-->
+    <link rel="stylesheet" href="assets/css/gala.css">
+
+    <title>Harvest Haven NonProfit</title>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <link rel="icon" type="image/x-icon" href="assets/img/fbla.ico">
+            <link rel="shortcut icon" href="assets/img/logo_fbla.png" type="image/png">
+            <a href="#" class="nav__logo"><img src="assets/img/harvesthavenwhite.png"></a>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <label class="close-btn" for="check">&times;</label>
+                <ul class="nav__list active" id="nav-list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="contact.html" class="nav__link">Contact</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="gala.html" class="nav__link active-link">Gala</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="payment.html" class="nav__link">Donate</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="login_exp.html" class="nav__link" id="displayEmail"></a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" id="logout"></a>
+                    </li>
+
+                </ul>
+
+
+                <!--SCRIPT FOR WELCOME USER DISPLAY-->
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const storedEmail = localStorage.getItem('storedEmail');
+                        const displayElement = document.getElementById('displayEmail');
+                        const logoutLink = document.getElementById('logout');
+
+                        if (storedEmail) {
+                            displayElement.textContent = `Welcome, ${storedEmail}`;
+                            logoutLink.textContent = 'Logout';
+                        } else {
+                            displayElement.textContent = 'Login';
+                        }
+
+                        logoutLink.addEventListener('click', function (event) {
+                            event.preventDefault(); // Prevent the default link behavior
+                            localStorage.clear(); // Clear local storage
+                            window.location.reload(); // Reload the current page (index.html)
+                        });
+                        });
+                </script>
+
+        </nav>
+    </header>
+
+
+
+    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            const storedEmail = localStorage.getItem('storedEmail');
+                            const displayElement = document.getElementById('displayEmail');
+                            const logoutLink = document.getElementById('logout');
+
+                            if (storedEmail) {
+                                displayElement.textContent = `Welcome, ${storedEmail}`;
+                                logoutLink.textContent = 'Logout';
+                            } else {
+                                displayElement.textContent = 'Login';
+                            }
+
+                            logoutLink.addEventListener('click', function (event) {
+                                event.preventDefault(); // Prevent the default link behavior
+                                localStorage.clear(); // Clear local storage
+                                window.location.reload(); // Reload the current page (index.html)
+                            });
+                            });
+    </script>
+
+
+ <!--==================== MAIN ====================-->
+    <div class="coverpage" id="coverpage">
+        <video autoplay loop plays-inline class="home__img" id="video">
+            <source src="assets/video/galareal.mp4" type = "video/mp4">
+        </video>
+        <div class="informat"> 
+            <h1 style="color: aliceblue;">Gala Coming Soon</h1>
+
+            <div class="launch-time">
+                <div>
+                    <p id ="days">00</p>
+                    <span>Days</span>
+                </div>
+                <div>
+                    <p id = "hours">00</p>
+                    <span>Hours</span>
+                </div>
+                <div>
+                    <p id="minutes">00</p>
+                    <span>Minutes</span>
+                </div>
+                <div>
+                    <p id="seconds">00</p>
+                    <span>Seconds</span>
+                </div>
+            </div>
+            <div class="about__buttons">
+                <a href="" class="button button--flex">
+                    Purchase Your Ticket!
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var video = document.getElementById('video');
+        var wrapper = document.getElementById('coverpage');
+        var videoPreviouslyVisible = false;
+    
+        window.onscroll = function() {
+        wrapper.style.backgroundColor = checkVisible(video) ? '#4f4' : '#f44';
+        video.muted = !checkVisible(video);
+        };
+    
+        function checkVisible(elm) {
+        var rect = elm.getBoundingClientRect();
+        var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+        return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+        }
+    </script>
+
+    <script>
+        var countDownDate = new Date("Feb 16, 2024 16:00:00").getTime();
+        var x = setInterval(function (){
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+        }, 1000);
+    </script>
+
+
+
+
+        
+        <!--==================== ABOUT ====================-->
+        <section class="about section hidden" id="about">
+            <h2 class="section__title" >About the Gala</h2>
+
+
+            <div class="about__container container grid">
+                <img src="assets/img/acution.png" alt="" class="about__img">
+
+                <div class="about__data" >
+                    <p class="about__description">Welcome to the Harvest Haven Annual Gala—an evening of dancing, gourmet delights, and a unique auction of rare culinary treasures. Your presence supports our mission to combat food insecurity. Let's unite for a night of impact and celebration.
+                    </p>
+
+                    <div class="about__info">
+                        <div>
+                            <span class="about__info-title">100,000+</span>
+                            <span class="about__info-name">Dollars <br> Raised</span>
+                        </div>
+
+                        <div>
+                            <span class="about__info-title">3000+</span>
+                            <span class="about__info-name">Attendees<br> satisfied</span>
+                        </div>
+
+                        <div>
+                            <span class="about__info-title">05</span>
+                            <span class="about__info-name">Galas<br> Hosted</span>
+                        </div>
+                    </div>
+
+                    <div class="about__buttons">
+                        <a download="" href="" class="button button--flex">
+                            Book Your Ticket
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        
+   
+       
+
+        <!--==================== QUALIFICATION ====================-->
+
+<section class="about section hidden">        
+<h2 class="section__title">Agenda (Feb. 16, 2024)</h2>
+</section>
+<br> 
+<div class="process-wrapper hidden">
+<div id="progress-bar-container">
+	<ul>
+		<li class="step step01 active"><div class="step-inner">DETAILS</div></li>
+		<li class="step step02"><div class="step-inner">OPENING</div></li>
+		<li class="step step03"><div class="step-inner">DINING</div></li>
+		<li class="step step04"><div class="step-inner">WORKSHOPS</div></li>
+		<li class="step step05"><div class="step-inner">AUCTION</div></li>
+	</ul>
+	
+	<div id="line">
+		<div id="line-progress"></div>
+	</div>
+</div>
+
+<div id="progress-content-section" class=".hidden">
+    <div class="section-content discovery active">
+        <h2>Important Details</h2>
+        <p>Welcome to our Nature-Themed Harvest Gala. Join us at Hyatt Regency Chicago(151 E Wacker Dr, Chicago, IL 60601) February 16th at 4:00pm - 10:00pm, looking forward to seeing you all there!</p>
+    </div>
+
+    <div class="section-content strategy">
+        <h2>Opening Ceremony & Nature Welcome</h2>
+        <p>Get Excited for the grand opening ceremony, featuring a warm welcome to nature. Enjoy a refreshing nature-inspired drink and hors d'oeuvres as you explore the venue.</p>
+    </div>
+
+    <div class="section-content creative">
+        <h2>Art Gallery Showcase & Food Tasting</h2>
+        <p>Explore the breathtaking art gallery featuring nature-inspired creations from talented artists. Indulge in a delightful food tasting experience with a menu inspired by the harvest season. Dance to live music and celebrate creativity and culinary delights.</p>
+    </div>
+
+    <div class="section-content production">
+        <h2>Guest Speakers & Interactive Workshops</h2>
+        <p>Indulge in the creativity of our featured artists and designers. Join food insecurity talks led by renowned guest speakers, craft nature-inspired creations in workshops. Enjoy a buffet dinner with a variety of dishes incorporating locally sourced, seasonal ingredients.</p>
+    </div>
+
+    <div class="section-content analysis">
+        <h2>Testimonials, Recognition & Live Auction</h2>
+        <p>Listen to heartwarming testimonials from our supporters and contributors. Recognize the efforts of individuals who have made significant contributions to the success of our gala. Get ready for an exciting live and silent auction sponsored by our partners with a variety of items and experiences.</p>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+ <script>
+    
+    $(".step").click( function() {
+	$(this).addClass("active").prevAll().addClass("active");
+	$(this).nextAll().removeClass("active");
+});
+
+$(".step01").click( function() {
+	$("#line-progress").css("width", "3%");
+	$(".discovery").addClass("active").siblings().removeClass("active");
+});
+
+$(".step02").click( function() {
+	$("#line-progress").css("width", "25%");
+	$(".strategy").addClass("active").siblings().removeClass("active");
+});
+
+$(".step03").click( function() {
+	$("#line-progress").css("width", "50%");
+	$(".creative").addClass("active").siblings().removeClass("active");
+});
+
+$(".step04").click( function() {
+	$("#line-progress").css("width", "75%");
+	$(".production").addClass("active").siblings().removeClass("active");
+});
+
+$(".step05").click( function() {
+	$("#line-progress").css("width", "100%");
+	$(".analysis").addClass("active").siblings().removeClass("active");
+});
+
+ 
+    </script>
+
+     <!--==================== LOCATION  ====================-->
+     <section class="about section hidden" id="about">
+        <h2 class="section__title">Location</h2>
+
+        <div class="about__container container grid">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.238586286327!2d-87.62541322343814!3d41.88772576481061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2ca9277cf885%3A0x7ac791074b293bae!2s151%20E%20Wacker%20Dr%2C%20Chicago%2C%20IL%2060601!5e0!3m2!1sen!2sus!4v1704575538274!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            <div class="about__data" >
+                <p class="about__description"> Welcome to our spectacular venue, the hub of excitement for our upcoming gala event! Nestled at 151 E Wacker Dr, Chicago, IL 60601, our location is not just an address; it's an experience waiting to unfold.
+                </p>
+
+                <div class="about__info">
+                    
+
+                </div>
+
+                <div class="about__buttons">
+                    <a href="#" class="button button--flex" onclick="openGoogleMaps()">
+                       Get Directions Now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+            
+        <!--==================== SERVICES ====================-->
+        <section class="services section hidden" id="services" >
+            <h2 class="section__title">Ticket Packages</h2>
+            <span class="section__subtitle">Grain | Crop | Harvest</span>
+        </section>
+
+        
+
+        
+        <!--==================== SERVICES 1 ====================-->  
+        <div class="b">
+            <div class="table basic">
+            <div class="price-section">
+                <div class="price-area">
+                <div class="inner-area">
+                    <span class="price">$29</span>
+                </div>
+                </div>
+            </div>
+            <div class="package-name"></div>
+            <ul class="features">
+                <li>
+                <span class="list-name">Gala event access
+                    </span>
+                <span class="icon-check"><i class="uil uil-check-circle services__modal-icon"></i></span>
+                </li>
+                <li>
+                <span class="list-name">Complimentary snacks and drinks</span>
+                <span class="icon-check"><i class="uil uil-check-circle services__modal-icon"></i></span>
+                </li>
+                <li>
+                <span class="list-name">General seating during dining</span>
+                <span class="icon-check"><i class="uil uil-check-circle services__modal-icon"></i></span>
+                </li>
+                <li>
+                <span class="list-name">Access to Silent Gala</span>
+                <span class="icon-check"><i class="uil uil-check-circle services__modal-icon"></i></span>
+                </li>
+            </ul>
+            <div class="btn" style="margin-top: 335px;">
+                <a href="grain.html" class="button">Purchase</a>
+            </div>
+            </div>
+            <div class="table premium">
+            <div class="price-section">
+                <div class="price-area">
+                    <div class="inner-area">
+                        <span class="price">$69</span>
+                    </div>
+                    </div>
+            </div>
+            <div class="package-name"></div>
+            <ul class="features">
+                <li>
+                <span class="list-name">All Harvest Seedling Ticket perks
+                   </span>
+                <span class="icon check"><i class="uil uil-check-circle services__modal-icon"></i></span>
+                </li>
+                <li>
+                <span class="list-name">Priority seating and better view during dining</span>
+                <span class="icon check"><i class="uil uil-check-circle services__modal-icon"></i></span>
+                </li>
+                <li>
+                <span class="list-name">VIP lounge access</span>
+                <span class="icon check"><i class="uil uil-check-circle services__modal-icon"></i></span>
+                </li>
+                <li>
+                <span class="list-name">Special mention in event program</span>
+                <span class="icon check"><i class="uil uil-check-circle services__modal-icon"></i></span>
+                </li>
+                <li>
+                <span class="list-name">Access to Live Auction</span>
+                <span class="icon check"><i class="uil uil-check-circle services__modal-icon"></i></span>
+                </li>
+            </ul>
+            <div class="btn" style="margin-top: 270px;">
+                <a href="crop.html" class="button">Purchase</a>
+            </div>
+            </div>
+            <div class="table ultimate">
+            <div class="price-section">
+                <div class="price-area">
+                <div class="inner-area">
+                    <span class="price">$159</span>
+                </div>
+                </div>
+            </div>
+            <div class="package-name"></div>
+            <ul class="features">
+                <li>
+                <span class="list-name">All Bountiful Orchard Ticket benefits
+                </span>
+                <span class="icon check"><i class="uil uil-check-circle services__modal-icon"></i></span>
+                </li>
+                <li>
+                <span class="list-name">Exclusive pre-gala reception</span>
+                <span class="icon check"><i class="uil uil-check-circle services__modal-icon"></i></span>
+                </li>
+                <li>
+                <span class="list-name">Special dishes prepared by renowned chefs</span>
+                <span class="icon check"><i class="uil uil-check-circle services__modal-icon"></i></span>
+                </li>
+                <li>
+                <span class="list-name">Meet with the people behind Harvest Haven</span>
+                <span class="icon check"><i class="uil uil-check-circle services__modal-icon"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Private booth during Live Auction</span>
+                    <span class="icon check"><i class="uil uil-check-circle services__modal-icon"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Distinguished supporter recognition</span>
+                    <span class="icon check"><i class="uil uil-check-circle services__modal-icon"></i></span>
+                </li>
+            </ul>
+            <div class="btn" style="margin-top: 165px;">
+                <a href="grain.html" class="button">Purchase</a>
+            </div>
+            </div>
+        </div>
+        
+        
+        <!--==================== TESTIMONIAL ====================-->
+        <section class="testimonial section">
+
+            <h2 class="section__title">Guest Speakers</h2>
+            <span class="section__subtitle">Special feautures in our program</span>
+
+            <div class="testimonial__container swiper-container">
+                <div class="swiper-wrapper">
+                <!--==================== TESTIMONIAL 1 ====================-->
+                <div class="testimonial__content swiper-slide">
+                    <div class="testimonial__data">
+                        <div class="testimonial__header">
+                            <img src="assets/img/raj_patel.jpeg" alt="" class="testimonial__img">
+                            
+                            <div>
+                                <h3 class="testimonial__name">Raj Patel</h3>
+                                <span class="testimonial__client">Birtish activist, journalist</span>
+                            </div>
+                        </div>
+                        <div>
+                            <i class="uil uil-star testimonial__icon-star"></i>
+                            <i class="uil uil-star testimonial__icon-star"></i>
+                            <i class="uil uil-star testimonial__icon-star"></i>
+                            <i class="uil uil-star testimonial__icon-star"></i>
+                           
+                        </div>
+                    </div>
+
+                    <p class="testimonial__description">Patel has given talks addressing the systemic issues contributing to food insecurity. He emphasizes the global economic and political factors that lead to unequal access to food, discussing issues such as land distribution, corporate control over agriculture, and the impact of globalization on food systems.
+                    </p>
+                </div>
+                <!--==================== TESTIMONIAL 2 ====================-->
+                <div class="testimonial__content swiper-slide">
+                    <div class="testimonial__data">
+                        <div class="testimonial__header">
+                            <img src="assets/img/ellen.jpeg" alt="" class="testimonial__img">
+                            
+                            <div>
+                                <h3 class="testimonial__name">Ellen Gustafson</h3>
+                                <span class="testimonial__client">American businessperson, social entrepreneur</span>
+                            </div>
+                        </div>
+                        <div>
+                            <i class="uil uil-star testimonial__icon-star"></i>
+                            <i class="uil uil-star testimonial__icon-star"></i>
+                            <i class="uil uil-star testimonial__icon-star"></i>
+                            <i class="uil uil-star testimonial__icon-star"></i>
+                            <i class="uil uil-star testimonial__icon-star"></i>
+                        </div>
+                    </div>
+
+                    <p class="testimonial__description">Gustafson's talks often focus on the interconnectedness of global food challenges and the need for a more sustainable and equitable food system. She explores the role of agriculture, trade, and policy in addressing hunger and advocates for a holistic approach to food security.
+                    </p>
+                </div>
+                <!--==================== TESTIMONIAL 3 ====================-->
+                <div class="testimonial__content swiper-slide">
+                    <div class="testimonial__data">
+                        <div class="testimonial__header">
+                            <img src="assets/img/danielle.jpeg" alt="" class="testimonial__img">
+                            
+                            <div>
+                                <h3 class="testimonial__name">Danielle Nierenberg</h3>
+                                <span class="testimonial__client">President and Co-Founder of Food Tank</span>
+                            </div>
+                        </div>
+                        <div>
+                            <i class="uil uil-star testimonial__icon-star"></i>
+                            <i class="uil uil-star testimonial__icon-star"></i>
+                            <i class="uil uil-star testimonial__icon-star"></i>
+                            
+                        </div>
+                    </div>
+
+                    <p class="testimonial__description">Nierenberg's talks frequently center on innovative solutions to food insecurity and the importance of sustainable agriculture. She highlights successful projects and initiatives around the world that address hunger, promote food justice, and encourage environmentally friendly farming practices.</p>
+                </div>      
+                </div>
+
+                <!--Add pagination-->
+                <div class="swiper-pagination swiper-pagination-testimonial"></div>
+            </div>
+            </section>
+
+             <!--==================== FOOTER ====================-->
+        <footer class="footer section" >
+            <div class="footer__container container grid">
+                <div class="footer__content grid">
+                    <div class="footer__data">
+                        <h3 class="footer__title">Social Media</h3>
+                        <p class="footer__description">Have a look at our socials <br> where planned events and
+                            activites are posted!
+                        </p>
+                        <div style="margin-top: 50px;">
+                            <a href="https://www.facebook.com/" target="_blank" class="footer__social">
+                                <i class="ri-facebook-box-fill"></i>
+                            </a>
+                            <a href="https://twitter.com/" target="_blank" class="footer__social">
+                                <i class="ri-twitter-fill"></i>
+                            </a>
+                            <a href="https://www.instagram.com/" target="_blank" class="footer__social">
+                                <i class="ri-instagram-fill"></i>
+                            </a>
+                            <a href="https://www.youtube.com/" target="_blank" class="footer__social">
+                                <i class="ri-youtube-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div class="footer__data">
+                        <h3 class="footer__subtitle">About</h3>
+                        <ul>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">About Us</a>
+                            </li>
+                           
+                            <li class="footer__item">
+                                <a href="gala.html" class="footer__link" style="margin-bottom: 10;">Upcoming Events</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__data">
+                        <h3 class="footer__subtitle">Support</h3>
+                        <ul>
+                            <li class="footer__item">
+                                <a href="faq.html" class="footer__link">FAQs</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="contact.html" class="footer__link">Contact Us</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="register.html" class="footer__link">Become a Member Today</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="payment.html" class="footer__link">Want to help directly? Donate Today!</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer__rights">
+                    <p class="footer__copy">&#169; 2023 Harvest Haven. All Rights Reserved.</p>
+                    <div class="footer__terms">
+                        <a href="sources.html" class="footer__terms-link">Sources</a>
+                        <a href="#" class="footer__terms-link">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+    <!--==================== SCROLL TOP ====================-->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="uil uil-arrow-up scrollup__icon"></i>
+    </a>
+    
+    <script>
+        function openGoogleMaps() {
+            var address = "151 E Wacker Dr, Chicago, IL 60601";
+            var mapsUrl = "https://www.google.com/maps?q=" + encodeURIComponent(address);
+            window.open(mapsUrl, '_blank');
+        }
+    </script>
+    <!--==================== SWIPER JS ====================-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!--==================== MAIN JS ====================-->
+    <script defer src="assets/js/gala.js"></script>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                console.log(entry)
+                if (entry.isIntersecting) {
+                entry.target.classList.add('show')
+                }
+            });
+            });
+
+            const hiddenElements = document.querySelectorAll('.hidden');
+            hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+</body>
+
+</html>

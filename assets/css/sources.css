@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@500;600;700&display=swap");
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+body,
+button {
+  font-family: "Open Sans", "sans-serif";
+}
+
+div.cookie-heading h3 {
+  font-family: "Open Sans", "sans-serif" !important;
+  text-align: center;
+  font-size: 2em;
+  background: rgb(172,194,122);
+  color: #fff;
+  padding: 3vh 0px;
+  margin: 0px;
+}
+
+.cookie-btn-container {
+  display: flex;
+  margin: 2vh 0px;
+}
+
+button.cookie-btn {
+  padding: 10px 15px;
+  border: 2px solid #eb5424;
+  border-radius: 5px;
+  background-color: #eb5424;
+  color: #fff;
+  width: max(100px, 5vw);
+  font-weight: 600;
+  margin: 0px auto;
+  cursor: pointer;
+}
+
+button.cookie-btn:hover {
+  color: #eb5424;
+  background: #fff;
+  border-color: #eb5424;
+  transition: 0.5s;
+}
+
+.cookie-modal {
+  visibility: visible;
+  opacity: 1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 50px;
+  transition: all 0.5s;
+  backdrop-filter: blur(1px);
+}
+
+.cookie-modal:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.cookie-modal .modal_content {
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  position: relative;
+  width: max(75vw, 450px);
+  height: max(80vh, 500px);
+  max-width: 90%;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.cookie-modal .modal_content .tabs-container {
+  display: flex;
+  border-bottom: 1px solid #000;
+}
+
+.cookie-modal .modal_content .tabs-container .tab {
+  background-color: #f1f1f1;
+  width: 30%;
+}
+
+.cookie-modal .modal_content .tabs-container .tab button.tablinks {
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.modal_content .tabs-container .tab button:hover {
+  background-color: #ddd;
+}
+
+.modal_content .tabs-container .tab button.active {
+  background-color: #ccc;
+}
+
+.modal_content .tabs-container .tabcontent {
+  padding: 0px 3%;
+  width: 70%;
+  height: max(40vh, 350px);
+}
+
+.links 
+{
+    text-decoration: underline;
+}
+
+.cookie-performance-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+/********************************************* Cookie Switch button **************************************************/
+
+.cookie-performance-div .switch {
+  position: relative;
+  display: inline-block;
+  width: max(4vw, 60px);
+  height: max(4vh,30px);
+  margin: 1em 0px;
+}
+
+.cookie-performance-div .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.cookie-performance-div .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.cookie-performance-div .slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 10px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.cookie-performance-div input:checked + .slider {
+  background-color: #2196f3;
+}
+
+.cookie-performance-div input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+.cookie-performance-div input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.cookie-performance-div .slider.round {
+  border-radius: 34px;
+}
+
+.cookie-performance-div .slider.round:before {
+  border-radius: 50%;
+}
+
+

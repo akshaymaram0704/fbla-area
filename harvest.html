@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/payment.css">
+    <style>
+        /* Add styles for warning and thank you pop-ups */
+        .warning-popup, .thank-you-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+        }
+        .warning-popup {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="nav cont">
+            <a href="#" class="nav__logo">Harvest Hope</a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">Nonprofit</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#discover" class="nav__link">Garden Gala</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="register.html" class="nav__link active-link">Register</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="login_exp.html" class="nav__link">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <form class="wrapper" action="" onsubmit="return validateForm()">
+            <div class="row">
+                <div class="col">
+                    <h3 class="title">Harvest Package Registration</h3>
+                    <div class="inputBox">
+                        <span>full name :</span>
+                        <input type="text" id="fullName" placeholder="full name" required>
+                    </div>
+                    <div class="inputBox">
+                        <span>email :</span>
+                        <input type="email" id="email" placeholder="example@example.com" required>
+                    </div>
+                    <div class="inputBox">
+                        <span>password :</span>
+                        <input type="password" id="password" placeholder="password" required>
+                    </div>
+                    <div class="inputBox">
+                        <span>name on card :</span>
+                        <input type="text" id="nameOnCard" placeholder="mr. john deo" required>
+                    </div>
+                    <div class="inputBox">
+                        <span>credit card number :</span>
+                        <input type="number" id="creditCardNumber" placeholder="1111-2222-3333-4444" required>
+                    </div>
+                    <div class="inputBox">
+                        <span>exp month :</span>
+                        <input type="text" id="expMonth" placeholder="january" required>
+                    </div>
+                    <div class="inputBox">
+                        <span>package amount :</span>
+                        <input type="text" id="package_amount" placeholder="159" value="159" readonly>
+
+                    </div>
+                    <div class="inputBox">
+                        <span>CVV :</span>
+                        <input type="text" id="cvv" placeholder="1234" required>
+                    </div>
+                    <div class="inputBox">
+                        <span>exp year :</span>
+                        <input type="number" id="expYear" placeholder="2022" required>
+                    </div>
+    
+                </div>
+            </div>
+            <input type="submit" value="Register" class="submit-btn">
+        </form>
+    </div>
+
+    <!-- Warning and Thank You Pop-ups -->
+    <div class="warning-popup" id="warningPopup">Please fill out all fields.</div>
+    <div class="thank-you-popup" id="thankYouPopup">Thank you for registering!</div>
+
+    <script>
+        var allowedEmails = ['poop12345@gmail.com', 'moka.jaguar@gmail.com', 'lion123@gmail.com'];
+    
+        function showWarningPopup() {
+            document.getElementById('warningPopup').classList.add('show-popup');
+        }
+    
+        function showThankYouPopup() {
+            document.getElementById('thankYouPopup').classList.add('show-popup');
+        }
+    
+        function validateForm() {
+            var elements = [
+                'fullName', 'email', 'password', 'nameOnCard',
+                'creditCardNumber', 'expMonth', 'package_amount', 'cvv', 'expYear'
+            ];
+    
+            for (var i = 0; i < elements.length; i++) {
+                var element = document.getElementById(elements[i]);
+                if (element.value === '') {
+                    showWarningPopup();
+                    return false;
+                }
+            }
+    
+            // Display the entered information in a pop-up for confirmation
+            var userConfirmation = confirm("Please confirm the information:\n" +
+                "Full Name: " + document.getElementById('fullName').value + "\n" +
+                "Email: " + document.getElementById('email').value + "\n" +
+                "Password: " + document.getElementById('password').value + "\n" +
+                "Name on Card: " + document.getElementById('nameOnCard').value + "\n" +
+                "Credit Card Number: " + document.getElementById('creditCardNumber').value + "\n" +
+                "Exp Month: " + document.getElementById('expMonth').value + "\n" +
+                "Package Amount: " + document.getElementById('package_amount').value + "\n" +
+                "CVV: " + document.getElementById('cvv').value + "\n" +
+                "Exp Year: " + document.getElementById('expYear').value + "\n" +
+                "\nIs the information correct?");
+    
+            if (userConfirmation) {
+                // Check if the entered email is in the allowedEmails array
+                var enteredEmail = document.getElementById('email').value;
+                if (allowedEmails.indexOf(enteredEmail) === -1) {
+                    alert('Email not registered. Please go register or log in. Payment was not completed.');
+                    return false;
+                }
+    
+                showThankYouPopup();
+                alert('Harvest Package succesfully acquired. You are now registered for the gala, check your inbox for additional information!')
+            }
+    
+            return false; // Prevents the form from submitting (for demonstration purposes)
+        }
+    
+        document.addEventListener('DOMContentLoaded', function () {
+            // Add classes to trigger the animations after a slight delay
+            setTimeout(() => {
+                document.body.classList.add('show-background');
+                document.querySelector('.nav').classList.add('show-menu');
+                document.querySelector('.wrapper').classList.add('show-wrapper');
+                document.querySelectorAll('.wrapper > *').forEach(element => {
+                    element.classList.add('show-wrapper');
+                });
+            }, 100);
+        });
+    
+    </script>
+    
+</body>
+</html>

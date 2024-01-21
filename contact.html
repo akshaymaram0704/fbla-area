@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/img/faviconnewest.ico">
+    <!--==================== UNICONS ====================-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <!--==================== SWIPER CSS ====================-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+    <!--==================== CSS ===================-->
+    <link rel="stylesheet" href="assets/css/gala.css">
+
+    <title>Harvest Harvest NonProfit</title>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <link rel="icon" type="image/x-icon" href="assets/img/fbla.ico">
+            <link rel="shortcut icon" href="assets/img/logo_fbla.png" type="image/png">
+            <a href="#" class="nav__logo"><img src="assets/img/harvesthavenwhite.png"></a>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <label class="close-btn" for="check">&times;</label>
+                <ul class="nav__list active" id="nav-list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="contact.html" class="nav__link active-link">Contact</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="gala.html" class="nav__link">Gala</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="payment.html" class="nav__link">Donate</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="login_exp.html" class="nav__link" id="displayEmail"></a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" id="logout"></a>
+                    </li>
+
+                </ul>
+
+
+                <!--SCRIPT FOR WELCOME USER DISPLAY-->
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const storedEmail = localStorage.getItem('storedEmail');
+                        const displayElement = document.getElementById('displayEmail');
+                        const logoutLink = document.getElementById('logout');
+
+                        if (storedEmail) {
+                            displayElement.textContent = `Welcome, ${storedEmail}`;
+                            logoutLink.textContent = 'Logout';
+                        } else {
+                            displayElement.textContent = 'Login';
+                        }
+
+                        logoutLink.addEventListener('click', function (event) {
+                            event.preventDefault(); // Prevent the default link behavior
+                            localStorage.clear(); // Clear local storage
+                            window.location.reload(); // Reload the current page (index.html)
+                        });
+                        });
+                </script>
+
+        </nav>
+    </header>
+    </header>
+
+
+
+ <!--==================== MAIN ====================-->
+
+    <!--==================== HOME ====================-->
+    <div class="coverpage" id="coverpage">
+        <!-- Add 'controls' attribute for video controls -->
+        <video autoplay loop plays-inline controls class="home__img" id="video">
+            <source src="assets/video/fblafaqnew.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
+<script>
+        var video = document.getElementById('video');
+        var wrapper = document.getElementById('coverpage');
+        var videoPreviouslyVisible = false;
+    
+        window.onscroll = function() {
+        wrapper.style.backgroundColor = checkVisible(video) ? '#4f4' : '#f44';
+        video.muted = !checkVisible(video);
+        };
+    
+        function checkVisible(elm) {
+        var rect = elm.getBoundingClientRect();
+        var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+        return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+        }
+</script>
+
+
+
+
+
+        <!--
+<div class="countdown">
+            <div class="box">
+                <span class="num" id="day-box">00</span>
+                <span class="text">Days</span>
+            </div>
+            <div class="box">
+                <span class="num" id="hr-box">00</span>
+                <span class="text">Hours</span>
+            </div>
+            <div class="box">
+                <span class="num" id="min-box">00</span>
+                <span class="text">Minutes</span>
+            </div>
+            <div class="box">
+                <span class="num" id="sec-box">00</span>
+                <span class="text">Seconds</span>
+            </div>
+        </div>
+        <script>
+            let dayBox = document.getElementById("day-box");
+    let hrBox = document.getElementById("hr-box");
+    let minBox = document.getElementById("min-box");
+    let secBox = document.getElementById("sec-box");
+    //Format: Date(year, month, day, hour, minute)
+    //Year is counter from 0 to 11
+    let endDate = new Date(2024, 8, 5, 16, 30);
+    //Output value in milliseconds
+    let endTime = endDate.getTime();
+    function countdown() {
+      let todayDate = new Date();
+      //Output value in milliseconds
+      let todayTime = todayDate.getTime();
+      let remainingTime = endTime - todayTime;
+      //60sec => 1000 milliseconds
+      let oneMin = 60 * 1000;
+      //1hr => 60 minutes
+      let oneHr = 60 * oneMin;
+      //1 day => 24 hours
+      let oneDay = 24 * oneHr;
+      //Function to format number if it is single digit
+      let addZeroes = (num) => (num < 10 ? `0${num}` : num);
+      //If end dat is before today date
+      if (endTime < todayTime) {
+        clearInterval(i);
+        document.querySelector(
+          ".countdown"
+        ).innerHTML = `<h1>Countdown had expired!</h1>`;
+      }
+      //If end date is not before today date
+      else {
+        //Calculating remaining days, hrs,mins ,secs
+        let daysLeft = Math.floor(remainingTime / oneDay);
+        let hrsLeft = Math.floor((remainingTime % oneDay) / oneHr);
+        let minsLeft = Math.floor((remainingTime % oneHr) / oneMin);
+        let secsLeft = Math.floor((remainingTime % oneMin) / 1000);
+        //Displaying Valurs
+        dayBox.textContent = addZeroes(daysLeft);
+        hrBox.textContent = addZeroes(hrsLeft);
+        minBox.textContent = addZeroes(minsLeft);
+        secBox.textContent = addZeroes(secsLeft);
+      }
+    }
+    let i = setInterval(countdown, 1000);
+    countdown();
+    </script>
+        -->
+        
+       
+
+      
+        
+
+     
+
+        <!--==================== CONTACT ME ====================-->
+        <section class="contact section" id="contact">
+            <h2 class="section__title">Any Other Questions?</h2>
+            <span class="section__subtitle">Get in touch</span>
+
+            <div class="contact__container container grid">
+                <div>
+                    <div class="contact__information">
+                        <i class="uil uil-phone-alt contact__icon"></i>
+
+                        <div>
+                            <h3 class="contact__title">Call us</h3>
+                            <span class="contatc__subtitle">469-768-9444</span>
+                        </div>
+                    </div>
+
+                    <div class="contact__information">
+                        <i class="uil uil-envelope contact__icon"></i>
+
+                        <div>
+                            <h3 class="contact__title">E-mail</h3>
+                            <span class="contatc__subtitle">harvesthaven@gmail.com</span>
+                        </div>
+                    </div>
+
+                    <div class="contact__information">
+                        <i class="uil uil-map-marker contact__icon"></i>
+
+                        <div>
+                            <h3 class="contact__title">Location</h3>
+                            <span class="contatc__subtitle">151 E Wacker Dr, Chicago, IL 60601</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form action="https://api.web3forms.com/submit" method="POST" class="contact__form grid">
+                    <div class="contact__inputs grid">
+                        <input type="hidden" name="access_key" value="1bbcb732-e4fc-406e-8ed4-3062edb01291">
+                        <div class="contact__content">
+                            <label for="" class="contact__label">Name</label>
+                            <input type="text" class="contact__input">
+                        </div>
+                      
+
+                        <div class="contact__content">
+                            <label for="" class="contact__label">E-mail</label>
+                            <input type="email" name = "email" placeholder="Your Email" class="contact__input" required>
+                        </div>
+                    </div>
+
+
+                    <div class="contact__content">
+                        <label for="" class="contact__label">Message</label>
+                        <textarea name="message" id="" cols="0" rows="7" class="contact__input" required></textarea>
+                    </div>
+
+                    <div>
+                        <button type = "submit" class="button button--flex"> Send Message
+     
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <!--==================== FOOTER ====================-->
+    <footer class="footer section">
+        <div class="footer__container container grid">
+            <div class="footer__content grid">
+                <div class="footer__data">
+                    <h3 class="footer__title">Social Media</h3>
+                    <p class="footer__description">Have a look at our socials <br> where planned events and
+                        activites are posted!
+                    </p>
+                    <div style="margin-top: 50px;">
+                        <a href="https://www.facebook.com/" target="_blank" class="footer__social">
+                            <i class="ri-facebook-box-fill"></i>
+                        </a>
+                        <a href="https://twitter.com/" target="_blank" class="footer__social">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank" class="footer__social">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                        <a href="https://www.youtube.com/" target="_blank" class="footer__social">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer__data">
+                    <h3 class="footer__subtitle">About</h3>
+                    <ul>
+                        <li class="footer__item">
+                            <a href="" class="footer__link">About Us</a>
+                        </li>
+                       
+                        <li class="footer__item">
+                            <a href="gala.html" class="footer__link" style="margin-bottom: 10;">Upcoming Events</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__data">
+                    <h3 class="footer__subtitle">Support</h3>
+                    <ul>
+                        <li class="footer__item">
+                            <a href="contact.html" class="footer__link">Contact Us</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="register.html" class="footer__link">Become a Member Today</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="payment.html" class="footer__link">Want to help directly? Donate Today!</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__rights">
+                <p class="footer__copy">&#169; 2023 Harvest Haven. All Rights Reserved.</p>
+                <div class="footer__terms">
+                    <a href="sources.html" class="footer__terms-link">Sources</a>
+                    <a href="#" class="footer__terms-link">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--==================== SCROLL TOP ====================-->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="uil uil-arrow-up scrollup__icon"></i>
+    </a>
+    
+
+    <!--==================== SWIPER JS ====================-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!--==================== MAIN JS ====================-->
+    <script src="assets/js/main.js"></script>
+
+    
+</body>
+
+</html>
